@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="springframework:spring-dao:1.2.6" type="repository">
+    <properties maven-id="springframework:spring-dao:1.2.6" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-dao/1.2.6/spring-dao-1.2.6.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context/1.2.6/spring-context-1.2.6.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/1.2.6/spring-aop-1.2.6.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-beans/1.2.6/spring-beans-1.2.6.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/org/springframework/spring-core/1.2.6/spring-core-1.2.6.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/commons-logging/commons-logging/1.0.4/commons-logging-1.0.4.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar!/" />
+      <root url="jar://$USER_HOME$/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

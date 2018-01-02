@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="MavRjtest:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="MavRjtest-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="MavRjtest:war exploded" />
+    </root>
+  </artifact>
+</component>

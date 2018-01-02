@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Vo.SecondMapper">
+    <select id="list" resultType="Vo.Secondclass">
+        SELECT * FROM secondtest
+    </select>
+    <insert id="add" parameterType="Vo.Secondclass">
+        INSERT INTO secondtest (testname,testtime,testaddre,testnum)VALUES(#{testname},#{testtime},#{testaddre},#{testnum})
+    </insert>
+    <delete id="del" parameterType="String">
+        DELETE FROM secondtest WHERE testname=#{testname}
+    </delete>
+</mapper>
