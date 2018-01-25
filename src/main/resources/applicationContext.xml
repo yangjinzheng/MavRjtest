@@ -18,6 +18,7 @@
     <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" abstract="true">-->
     <!--<property name="location" value="classpath:db.properties"/>-->
     <!--</bean>-->
+    <context:component-scan base-package="Service" />
     <bean id="datasource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/rjtest?characterEncoding=utf8&amp;useSSL=true"/>
@@ -27,26 +28,38 @@
     <!--配置工厂-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="datasource"/>
-        <property name="configLocation" value="classpath:conf.xml"/>
+        <!--自动扫描mapper文件-->
+        <property name="mapperLocations" value="classpath:Mapper/*.xml"/>
     </bean>
-    <bean id="Userdao" class="Dao.Impl.UserdaoImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    <!--自动扫描Dao层-->
+    <bean  class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="Dao"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-    <bean id="Seconddao" class="Dao.Impl.SeconddaoImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    <!-- 事务管理 -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="datasource"/>
     </bean>
-    <bean id="Studao" class="Dao.Impl.StudaoImpl">
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
-    </bean>
-    <bean id="Userservice" class="Service.Impl.UserserviceImpl">
-        <property name="userDao" ref="Userdao"/>
-    </bean>
-    <bean id="Secondservice" class="Service.Impl.SecondserviceImpl">
-        <property name="secondDao" ref="Seconddao"/>
-    </bean>
-    <bean id="Stuservice" class="Service.Impl.StuserviceImpl">
-        <property name="stuDao" ref="Studao"/>
-    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--<bean id="Userdao" class="Dao.Impl.UserdaoImpl">-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
+    <!--<bean id="Seconddao" class="Dao.Impl.SeconddaoImpl">-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>-->
+    <!--</bean>-->
+    <!--<bean id="Studao" class="Dao.Impl.StudaoImpl">-->
+        <!--<property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+    <!--</bean>-->
+    <!--<bean id="Userservice" class="Service.Impl.UserserviceImpl">-->
+        <!--<property name="userDao" ref="Userdao"/>-->
+    <!--</bean>-->
+    <!--<bean id="Secondservice" class="Service.Impl.SecondserviceImpl">-->
+        <!--<property name="secondDao" ref="Seconddao"/>-->
+    <!--</bean>-->
+    <!--<bean id="Stuservice" class="Service.Impl.StuserviceImpl">-->
+        <!--<property name="stuDao" ref="Studao"/>-->
+    <!--</bean>-->
     <!--配置声明式事务-->
     <!--事务管理器-->
     <!--<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->

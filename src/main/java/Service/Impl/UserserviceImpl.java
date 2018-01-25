@@ -1,6 +1,5 @@
 package Service.Impl;
 
-import Dao.Impl.UserdaoImpl;
 import Dao.UserDao;
 import Service.UserService;
 import Vo.ShowTselect;
@@ -17,11 +16,6 @@ import java.util.List;
 public class UserserviceImpl implements UserService {
     @Autowired
     private UserDao userDao;
-
-    public void setUserDao(UserDao userDao) {
-        this.userDao = userDao;
-    }
-
     @Override
     public List<Test> list() {
         return userDao.list();

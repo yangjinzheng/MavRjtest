@@ -3,14 +3,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Vo.StuMapper">
+<mapper namespace="Dao.StuDao">
     <select id="listbyid" parameterType="java.lang.Integer" resultType="Vo.Stusecond">
         SELECT * from stusecond WHERE stuid=#{id}
     </select>
     <insert id="addstu" parameterType="Vo.Stusecond">
         INSERT into stusecond (stuclass,stuname,stuid,couse,testtime,testaddre)VALUES(#{stuclass},#{stuname},#{stuid},#{couse},#{testtime},#{testaddre})
     </insert>
-    <delete id="delbyic" parameterType="Vo.Stusecond">
+    <delete id="del" parameterType="Vo.Stusecond">
         DELETE FROM stusecond WHERE stuid=#{stuid} AND couse=#{couse}
     </delete>
 </mapper>

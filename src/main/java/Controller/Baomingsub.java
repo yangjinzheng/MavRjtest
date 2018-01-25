@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class Baomingsub {
     @Autowired
-    StuService stuServicel;
+    StuService stuService;
     @Autowired
     UserService userService;
     @RequestMapping("/Baomingsub")
@@ -42,7 +42,7 @@ public class Baomingsub {
             stusecond.setTesttime(req.getParameter("testtime"));
             stusecond.setTestaddre(req.getParameter("testaddre"));
             stusecond.setCouse(req.getParameter("couse"));
-            stuServicel.addstu(stusecond);
+            stuService.addstu(stusecond);
             System.out.println("bancheng");
             return "/Successful";
         }

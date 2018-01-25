@@ -27,8 +27,8 @@ public class LoginController {
         String lname = req.getParameter("loginname");
         String lpass = req.getParameter("loginpass");
         String snum = req.getParameter("radio");
-        if(snum.equals("")){
-            snum="0";
+        if(snum==null){
+            return "/Logincuo";
         }
         int num = Integer.parseInt(snum);
         if(lname.equals("admin")&&lpass.equals("123456")) {

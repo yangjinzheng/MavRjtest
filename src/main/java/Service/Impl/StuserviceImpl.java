@@ -4,20 +4,17 @@ import Dao.StuDao;
 import Service.StuService;
 import Vo.Stusecond;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by pc on 2017/10/26.
  */
+@Service("stuService")
 public class StuserviceImpl implements StuService {
     @Autowired
-    StuDao stuDao;
-
-    public void setStuDao(StuDao stuDao) {
-        this.stuDao = stuDao;
-    }
-
+    private StuDao stuDao;
     @Override
     public List<Stusecond> listbyid(int id) {
         return stuDao.listbyid(id);

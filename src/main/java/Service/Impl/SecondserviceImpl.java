@@ -15,7 +15,6 @@ import java.util.List;
 public class SecondserviceImpl implements SecondService {
     @Autowired
     private SecondDao secondDao;
-
     @Override
     public List<Secondclass> list() {
         return secondDao.list();
@@ -31,7 +30,4 @@ public class SecondserviceImpl implements SecondService {
         secondDao.del(testname);
     }
 
-    public void setSecondDao(SecondDao secondDao) {
-        this.secondDao = secondDao;
-    }
 }

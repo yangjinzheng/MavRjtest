@@ -3,7 +3,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Vo.SecondMapper">
+<mapper namespace="Dao.SecondDao">
     <select id="list" resultType="Vo.Secondclass">
         SELECT * FROM secondtest
     </select>

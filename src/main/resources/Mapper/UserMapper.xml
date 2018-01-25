@@ -3,14 +3,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="Vo.TestMapper">
-    <select id="List" resultType="Vo.Test">
+<mapper namespace="Dao.UserDao">
+    <select id="list" resultType="Vo.Test">
         SELECT * FROM test
     </select>
-    <select id="Listbyid" parameterType="java.lang.Integer" resultType="Vo.Test">
+    <select id="listbyid" parameterType="java.lang.Integer" resultType="Vo.Test">
         SELECT * FROM test WHERE stuid=#{id}
     </select>
-    <insert id="addtest" parameterType="Vo.Test">
+    <insert id="add" parameterType="Vo.Test">
         INSERT into test (mathscore,chinscore,engscore,stuname,stuid,stuclass)VALUES (#{mathscore},#{chinscore},#{engscore},#{stuname},#{stuid},#{stuclass})
     </insert>
     <update id="updatebyid" parameterType="Vo.Test">
@@ -23,7 +23,7 @@
         <result column="stuclass" property="sclass"></result>
         <result column="chinscore" property="sscore"></result>
     </resultMap>
-    <select id="selectchin" resultMap="chinscore">
+    <select id="listchin" resultMap="chinscore">
         SELECT stuid,stuname,stuclass,chinscore FROM test
     </select>
     <resultMap id="mathscore" type="Vo.ShowTselect">
@@ -32,7 +32,7 @@
         <result column="stuclass" property="sclass"></result>
         <result column="mathscore" property="sscore"></result>
     </resultMap>
-    <select id="selectmath" resultMap="mathscore">
+    <select id="listmath" resultMap="mathscore">
         SELECT stuid,stuname,stuclass,mathscore FROM test
     </select>
     <resultMap id="engscore" type="Vo.ShowTselect">
@@ -41,10 +41,10 @@
         <result column="stuclass" property="sclass"></result>
         <result column="engscore" property="sscore"></result>
     </resultMap>
-    <select id="selecteng" resultMap="engscore">
+    <select id="listeng" resultMap="engscore">
         SELECT stuid,stuname,stuclass,engscore FROM test
     </select>
-    <delete id="delbyid" parameterType="java.lang.Integer">
+    <delete id="delete" parameterType="java.lang.Integer">
         DELETE from test WHERE stuid=#{id}
     </delete>
 </mapper>
